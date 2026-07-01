@@ -28,4 +28,4 @@ The embedded code utilizes a smart filtering mechanism to prevent false triggers
 2. **`loop()`**: Samples three consecutive readings to calculate an average distance, actively smoothing out erratic sensor noise.
 3. **Threshold Check**: If an object is detected within **50 cm**, the servo motor attaches, opens the lid, waits for 3 seconds, closes it, and detaches to save battery power.
 
-Feel free to star ⭐ this repository to follow my developer journey from the very beginning!
+Feel free to star ⭐ this repository if you find this project interesting!
