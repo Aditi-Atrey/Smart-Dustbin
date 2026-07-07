@@ -1,8 +1,8 @@
-# 🗑️ Smart Dustbin using Arduino (9th Grade Project)
+# 🗑️ Smart Dustbin using Arduino 
 
 🏆 **Prize Winner**: This project won **1st Prize** at the *Explorica'23* science exhibition in our school!
 
-This is an Arduino-based smart, contactless dustbin that automatically opens its lid when it detects an object nearby. I built this project back in 9th grade with my friend Bhairavi Ghodmare using a YouTube tutorial.
+This is an Arduino-based smart, contactless dustbin that automatically opens its lid when it detects an object nearby. I built this project back in 2023 with my friend Bhairavi Ghodmare using a YouTube tutorial.
 
 ## 🚀 Project Overview
 I built this project to promote better hygiene through touchless technology. By using an ultrasonic sensor to measure distances, the bin detects when a user approaches and triggers a servo motor to smoothly open the lid, closing it automatically after a brief delay.
