@@ -38,7 +38,6 @@ void loop() {
  dist=(aver[0]+aver[1]+aver[2])/3;    
 
 if ( dist<50 ) {
-//Change distance as per your need
  servo.attach(servoPin);
   delay(1);
  servo.write(0);  
