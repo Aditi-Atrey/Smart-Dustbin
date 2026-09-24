@@ -1,31 +1,171 @@
-# 🗑️ Smart Dustbin using Arduino 
+# 🗑️ Smart Dustbin using Arduino
 
-🏆 **Prize Winner**: This project won **1st Prize** at the *Explorica'23* science exhibition in our school!
+🏆 **1st Prize Winner — Explorica'23 Science Exhibition**
 
-This is an Arduino-based smart, contactless dustbin that automatically opens its lid when it detects an object nearby. I built this project back in 2023 with my friend Bhairavi Ghodmare using a YouTube tutorial.
+An Arduino-based **smart, contactless dustbin** that automatically opens its lid when an object or person is detected nearby. The project was built in **2023** with my friend **Bhairavi Ghodmare** as a school science exhibition project.
 
 ## 🚀 Project Overview
-I built this project to promote better hygiene through touchless technology. By using an ultrasonic sensor to measure distances, the bin detects when a user approaches and triggers a servo motor to smoothly open the lid, closing it automatically after a brief delay.
 
-## 🛠️ Tech Stack & Hardware
-* **Microcontroller**: Arduino Uno (or compatible board)
-* **Sensors**: HC-SR04 Ultrasonic Sensor
-* **Actuators**: Servo Motor (e.g., SG90)
-* **Language**: C++ / Arduino Wire Language
-* **Learning Source**: YouTube tutorials & school lab sessions
+The Smart Dustbin uses an **ultrasonic sensor** to detect objects within a predefined distance. When an object comes within **50 cm**, an **servo motor** automatically opens the dustbin lid.
 
-## 📌 Pin Configurations
+After a short delay, the lid closes automatically, allowing the bin to be used without touching it.
 
-| Component | Arduino Pin |
-| :--- | :--- |
-| **Ultrasonic Trig** | Pin 5 |
-| **Ultrasonic Echo** | Pin 6 |
-| **Servo Signal** | Pin 7 |
+The project demonstrates how simple embedded systems can be used to improve **hygiene, convenience, and contactless interaction**.
 
-## 💻 Code Structure & Logic
-The embedded code utilizes a smart filtering mechanism to prevent false triggers:
-1. **`measure()`**: Triggers the ultrasonic sensor bursts to calculate distance in centimeters.
-2. **`loop()`**: Samples three consecutive readings to calculate an average distance, actively smoothing out erratic sensor noise.
-3. **Threshold Check**: If an object is detected within **50 cm**, the servo motor attaches, opens the lid, waits for 3 seconds, closes it, and detaches to save battery power.
+## ✨ Features
 
-Feel free to star ⭐ this repository if you find this project interesting!
+* 🖐️ **Touchless operation**
+* 📡 Ultrasonic-based object detection
+* ⚙️ Automatic lid control using a servo motor
+* 📊 Three distance readings are averaged to reduce sensor fluctuations
+* ⏱️ Automatic closing after opening
+* 🔋 Servo is detached when not in use
+
+## 🛠️ Components Used
+
+| Component                 |    Quantity |
+| ------------------------- | ----------: |
+| Arduino Uno               |           1 |
+| HC-SR04 Ultrasonic Sensor |           1 |
+| SG90 Servo Motor          |           1 |
+| Resistor                  |           1 |
+| Jumper Wires              | As required |
+| Dustbin with movable lid  |           1 |
+
+## 📌 Pin Configuration
+
+| Component    | Arduino Pin |
+| ------------ | ----------: |
+| HC-SR04 Trig |       Pin 5 |
+| HC-SR04 Echo |       Pin 6 |
+| Servo Signal |       Pin 7 |
+
+## 💻 How It Works
+
+The system follows a simple detection-and-actuation process:
+
+```text
+        Object detected
+              ↓
+      Ultrasonic Sensor
+              ↓
+     Measure distance
+              ↓
+    Average 3 readings
+              ↓
+      Distance < 50 cm?
+          ↙         ↘
+        YES          NO
+         ↓            ↓
+   Servo activated   Continue
+         ↓
+     Lid opens
+         ↓
+     Wait 3 seconds
+         ↓
+     Lid closes
+         ↓
+   Servo detached
+```
+
+## 🧠 Code Logic
+
+### `setup()`
+
+The Arduino initializes:
+
+* Serial communication
+* Servo motor
+* Ultrasonic sensor pins
+* Initial servo position
+
+The servo is initially positioned at `0°`, keeping the lid closed.
+
+### `measure()`
+
+The ultrasonic sensor sends a short trigger pulse and measures the time taken for the echo to return.
+
+The distance is calculated using:
+
+```cpp
+dist = (duration / 2) / 29.1;
+```
+
+This converts the measured echo duration into an approximate distance in centimeters.
+
+### Distance Averaging
+
+Instead of relying on a single sensor reading, the program takes **three consecutive measurements**:
+
+```cpp
+for (int i=0; i<=2; i++) {
+    measure();
+    aver[i] = dist;
+    delay(10);
+}
+```
+
+The three readings are then averaged:
+
+```cpp
+dist = (aver[0] + aver[1] + aver[2]) / 3;
+```
+
+This helps reduce small fluctuations in ultrasonic sensor readings.
+
+### Automatic Lid Control
+
+When the measured distance is below **50 cm**:
+
+```cpp
+if (dist < 50)
+```
+
+the servo is activated.
+
+The lid remains closed initially, then the servo moves to `150°` to open the lid:
+
+```cpp
+servo.write(0);
+delay(3000);
+servo.write(150);
+```
+
+Afterward, the servo is detached.
+
+## 🔧 Technology Used
+
+* **Microcontroller:** Arduino Uno
+* **Programming:** Arduino C++ / Wiring
+* **Sensor:** Ultrasonic Sensor
+* **Actuator:** Servo Motor
+* **Detection Method:** Ultrasonic distance measurement
+
+## 🏆 Achievement
+
+🥇 **1st Prize — Explorica'23 Science Exhibition**
+
+This project was developed as a school-level science exhibition project and demonstrated the practical application of **Arduino, sensors, and automation** to create a simple contactless solution.
+
+## 📚 Learning & Inspiration
+
+The project was developed with the help of **YouTube tutorials and school laboratory sessions**. Building it provided hands-on experience with:
+
+* Arduino programming
+* Ultrasonic sensors
+* Servo motor control
+* Sensor data processing
+* Basic embedded-system design
+* Hardware-software integration
+
+## 👩‍💻 Project Team
+
+**Aditi Atrey**
+**Bhairavi Ghodmare**
+
+Built in **2023** for the **Explorica'23 Science Exhibition**.
+
+---
+
+⭐ If you find this project interesting, consider giving the repository a star!
+
