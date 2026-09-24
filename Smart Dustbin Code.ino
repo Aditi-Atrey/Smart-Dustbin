@@ -3,7 +3,6 @@ Servo servo;
 int trigPin = 5;    
 int echoPin = 6;   
 int servoPin = 7;
-int led= 10;
 long duration, dist, average;   
 long aver[3];   //array for average
 
@@ -19,7 +18,6 @@ void setup() {
 } 
 
 void measure() {  
- digitalWrite(10,HIGH);
 digitalWrite(trigPin, LOW);
 delayMicroseconds(5);
 digitalWrite(trigPin, HIGH);
