@@ -161,6 +161,7 @@ The project was developed with the help of **YouTube tutorials and school labora
 ## 👩‍💻 Project Team
 
 **Aditi Atrey**
+
 **Bhairavi Ghodmare**
 
 Built in **2023** for the **Explorica'23 Science Exhibition**.
