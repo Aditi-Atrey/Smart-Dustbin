@@ -28,7 +28,6 @@ The project demonstrates how simple embedded systems can be used to improve **hy
 | Arduino Uno               |           1 |
 | HC-SR04 Ultrasonic Sensor |           1 |
 | SG90 Servo Motor          |           1 |
-| Resistor                  |           1 |
 | Jumper Wires              | As required |
 | Dustbin with movable lid  |           1 |
 
