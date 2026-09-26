@@ -79,7 +79,7 @@ The Arduino initializes:
 * Ultrasonic sensor pins
 * Initial servo position
 
-The servo is initially positioned at `0°`, keeping the lid closed.
+The servo is initially positioned at `0°`angle, keeping the lid closed.
 
 ### `measure()`
 
@@ -91,7 +91,7 @@ The distance is calculated using:
 dist = (duration / 2) / 29.1;
 ```
 
-This converts the measured echo duration into an approximate distance in centimeters.
+This converts the measured echo duration into an approximate distance in centimetres.
 
 ### Distance Averaging
 
@@ -123,7 +123,7 @@ if (dist < 50)
 
 the servo is activated.
 
-The lid remains closed initially, then the servo moves to `150°` to open the lid:
+The lid remains closed initially, then the servo moves to `150°`angle to open the lid:
 
 ```cpp
 servo.write(0);
