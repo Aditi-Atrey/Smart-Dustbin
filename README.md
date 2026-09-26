@@ -6,7 +6,7 @@ An Arduino-based **smart, contactless dustbin** that automatically opens its lid
 
 ## 🚀 Project Overview
 
-The Smart Dustbin uses an **ultrasonic sensor** to detect objects within a predefined distance. When an object comes within **50 cm**, an **servo motor** automatically opens the dustbin lid.
+The Smart Dustbin uses an **ultrasonic sensor** to detect objects within a predefined distance. When an object comes within **50 cm**, a **servo motor** automatically opens the dustbin lid.
 
 After a short delay, the lid closes automatically, allowing the bin to be used without touching it.
 
